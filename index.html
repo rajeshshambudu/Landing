@@ -3,37 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dream Ladders — Professional Websites & Automation Tools</title>
-  <meta name="description" content="Engineering-driven digital solutions: websites, tools, automation." />
+
+  <!-- SEO TITLE & DESCRIPTION -->
+  <title>Dream Ladders | Website Development & Automation Services for Businesses</title>
+  <meta name="description" content="Dream Ladders builds professional websites, automation tools, and custom engineering solutions for consultants, engineers, and small businesses across India. Free consultation available." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Dream Ladders – Website Development & Automation Services" />
+  <meta property="og:description" content="Professional websites and automation tools for consultants, engineers, and small businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/" />
+  <meta property="og:image" content="https://yourusername.github.io/android-chrome-512x512.png" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f1a;
-      --card-bg: rgba(22, 30, 46, 0.8);
-      --accent: #38bdf8; /* Azure Blue */
-      --accent-2: #c084fc; /* Creative Purple */
-      --accent-eng: #10b981; /* Engineering Green */
-      --text-main: #f8fafc;
-      --text-dim: #94a3b8;
-      --border: rgba(255, 255, 255, 0.08);
+      --bg:#0b0f1a;
+      --card-bg:rgba(22,30,46,0.8);
+      --accent:#38bdf8;
+      --accent-2:#c084fc;
+      --accent-eng:#10b981;
+      --text-main:#f8fafc;
+      --text-dim:#94a3b8;
+      --border:rgba(255,255,255,0.08);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
       font-family:'Inter',sans-serif;
       background:var(--bg);
       color:var(--text-main);
       line-height:1.6;
       scroll-behavior:smooth;
-      overflow-x:hidden;
     }
-    a { text-decoration:none; }
-    .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+    a{text-decoration:none;}
+    .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
 
-    /* header / nav */
-    nav {
+    nav{
       padding:1.5rem 0;
       display:flex;
       justify-content:space-between;
@@ -42,52 +53,43 @@
       top:0;
       z-index:100;
       backdrop-filter:blur(15px);
-      background:rgba(11,15,26,0.8);
+      background:rgba(11,15,26,0.85);
       border-bottom:1px solid var(--border);
     }
-    .logo {
+    .logo{
       display:flex;
       align-items:center;
       font-weight:800;
       font-size:1.1rem;
-      letter-spacing:-0.5px;
       color:#fff;
     }
-    .logo img {
-      height:32px;
-      margin-right:8px;
-    }
-    .nav-links { display:flex; align-items:center; gap:1.5rem; }
-    .nav-links a {
+    .logo img{height:32px;margin-right:8px;}
+    .nav-links{display:flex;gap:1.5rem;}
+    .nav-links a{
       color:var(--text-dim);
       font-size:0.85rem;
       font-weight:500;
-      transition:0.3s;
     }
-    .nav-links a:hover { color:var(--accent); }
-    /* hide nav-links on small if you want */
-    @media(max-width:768px){
-      .nav-links{display:none;}
-    }
+    .nav-links a:hover{color:var(--accent);}
+    @media(max-width:768px){.nav-links{display:none;}}
 
-    /* hero */
-    header {
+    header{
       padding:140px 0 60px;
       text-align:center;
     }
-    .badge {
+    .badge{
       background:var(--card-bg);
       border:1px solid var(--border);
       padding:0.4rem 1rem;
       border-radius:100px;
       font-size:0.75rem;
       color:var(--accent);
-      text-transform:uppercase;
       letter-spacing:1px;
       margin-bottom:1.5rem;
       display:inline-block;
+      text-transform:uppercase;
     }
-    h1 {
+    h1{
       font-size:clamp(2rem,7vw,3.2rem);
       font-weight:800;
       letter-spacing:-1px;
@@ -96,169 +98,172 @@
       -webkit-text-fill-color:transparent;
       margin-bottom:1rem;
     }
-    .hero-tagline {
+    .hero-tagline{
       font-size:1.15rem;
       color:var(--text-dim);
-      max-width:700px;
+      max-width:750px;
       margin:0 auto 2rem;
     }
-    .btn-main {
+    .btn-main{
       background:var(--accent);
       color:var(--bg);
       padding:0.8rem 1.5rem;
       border-radius:12px;
       font-weight:700;
-      font-size:0.95rem;
-      transition:0.3s;
       display:inline-block;
     }
-    .btn-main:hover {
+    .btn-main:hover{
       transform:translateY(-2px);
       box-shadow:0 10px 20px rgba(56,189,248,0.3);
     }
 
-    /* services / cards */
-    .services-grid {
+    section{margin:4rem 0;}
+
+    .services-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
       gap:1.5rem;
-      margin:4rem 0 6rem;
     }
-    .service-card {
+    .service-card{
       background:var(--card-bg);
       border:1px solid var(--border);
       padding:2rem;
       border-radius:24px;
-      transition:0.4s;
     }
-    .service-card:hover {
-      border-color:var(--accent);
-      transform:scale(1.02);
-    }
-    .service-card h3 {
+    .service-card:hover{border-color:var(--accent);}
+    .service-card h3{
       font-size:0.9rem;
       color:var(--accent);
       margin-bottom:0.6rem;
       text-transform:uppercase;
     }
-    .service-card p {
+    .service-card p{
       font-size:0.9rem;
       color:var(--text-dim);
-      line-height:1.4;
     }
 
-    /* trust or footer */
-    footer {
+    footer{
       padding:3rem 0;
       border-top:1px solid var(--border);
       text-align:center;
     }
-    footer p {
-      font-size:0.9rem;
-      color:var(--text-dim);
-    }
+    footer p{font-size:0.9rem;color:var(--text-dim);}
   </style>
 </head>
+
 <body>
+<div class="container">
 
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">
-        <img src="android-chrome-512x512.png" alt="Dream Ladders Logo">
-        Dream Ladders
-      </a>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">
+      <img src="android-chrome-512x512.png" alt="Dream Ladders – Website Development and Automation Services Logo">
+      Dream Ladders
+    </a>
+    <div class="nav-links">
+      <a href="#services">Web Services</a>
+      <a href="#pricing">Website Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="badge">Free Consultation</div>
+    <h1>
+      Website Development & Automation Services
+      for Consultants, Engineers, and Small Businesses
+    </h1>
+    <p class="hero-tagline">
+      Dream Ladders builds fast, reliable websites and custom automation tools
+      that save time, improve credibility, and drive real business results.
+    </p>
+    <a href="https://wa.me/917093218658" class="btn-main">Get a Free Consultation</a>
+    <p style="margin-top:1rem;font-size:0.9rem;color:var(--text-dim);">
+      ✔ 15-minute call • Clear scope & pricing • No obligation
+    </p>
+  </header>
+
+  <!-- SEO CONTEXT SECTION -->
+  <section>
+    <h2>Professional Website Development & Automation Solutions</h2>
+    <p style="color:var(--text-dim);max-width:900px;margin:1rem auto 0;">
+      Dream Ladders provides professional website development, custom engineering tools,
+      and automation services for consultants, engineers, startups, and small businesses
+      across India. We focus on performance, scalability, and measurable results.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 style="display:none;">Website Development & Automation Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Professional Websites</h3>
+        <p>Modern, responsive websites built for credibility and conversions.</p>
       </div>
-    </nav>
-
-    <!-- HERO -->
-    <header>
-      <div class="badge">Lead Magnet Offer</div>
-      <h1>
-        Professional websites and automation tools
-        for consultants, businesses, and engineers.
-      </h1>
-      <p class="hero-tagline">
-        Clean design, reliable performance,
-        and clear results—no confusion.
-      </p>
-      <a href="https://wa.me/917093218658" class="btn-main">
-        Get a Free Consultation
-      </a>
-      <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-dim);">
-        ✔ Free 15-minute consultation • Clear scope & pricing • No obligation
-      </p>
-    </header>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Professional Websites</h3>
-          <p>Modern, responsive sites built for credibility and conversion.</p>
-        </div>
-        <div class="service-card">
-          <h3>Custom Engineering Tools</h3>
-          <p>Web calculators, dashboards, and automation for practical results.</p>
-        </div>
-        <div class="service-card">
-          <h3>DevOps & Deployment</h3>
-          <p>CI/CD, hosting setup, and performance tuning for reliable uptime.</p>
-        </div>
-        <div class="service-card">
-          <h3>Industry-Specific Solutions</h3>
-          <p>Solutions for consultants, surveyors, engineers, and small businesses.</p>
-        </div>
+      <div class="service-card">
+        <h3>Custom Engineering Tools</h3>
+        <p>Dashboards, calculators, and tools to automate real-world workflows.</p>
       </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing">
-      <h2 style="text-align:center; font-size:2rem; margin:2rem 0 1rem; font-weight:800;">
-        Pricing & Packages
-      </h2>
-      <p style="text-align:center; color:var(--text-dim); max-width:700px; margin:0 auto 2rem;">
-        Transparent, client‑friendly pricing. Exact cost depends on project scope.
-      </p>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Starter Portfolio</h3>
-          <p style="color:var(--text-main); font-weight:600; margin:0.5rem 0;">₹5,000 – ₹8,000</p>
-          <p>Single‑page portfolio, responsive design, basic hosting help.</p>
-        </div>
-        <div class="service-card">
-          <h3>Professional Website</h3>
-          <p style="color:var(--text-main); font-weight:600; margin:0.5rem 0;">₹15,000 – ₹25,000</p>
-          <p>Custom multi‑section site, branding, contact/WhatsApp CTA, SEO basics.</p>
-        </div>
-        <div class="service-card">
-          <h3>Custom Tools / Automation</h3>
-          <p style="color:var(--text-main); font-weight:600; margin:0.5rem 0;">₹35,000+</p>
-          <p>Custom logic, calculators, dashboards, automation, testing.</p>
-        </div>
+      <div class="service-card">
+        <h3>DevOps & Deployment</h3>
+        <p>CI/CD pipelines, hosting setup, and performance optimization.</p>
       </div>
-    </section>
+      <div class="service-card">
+        <h3>Industry-Specific Solutions</h3>
+        <p>Tailored solutions for consultants, engineers, and small businesses.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" style="text-align:center; margin:4rem 0;">
-      <h2 style="font-size:1.8rem; font-weight:800; margin-bottom:1rem;">Let’s talk</h2>
-      <p style="max-width:700px; margin:0 auto 1.5rem; color:var(--text-dim);">
-        Ready to build or upgrade your site? Get clarity on cost and timeline in one call.
-      </p>
-      <a href="https://wa.me/917093218658" class="btn-main">
-        Chat on WhatsApp
-      </a>
-    </section>
+  <!-- PRICING -->
+  <section id="pricing">
+    <h2 style="text-align:center;font-size:2rem;font-weight:800;">Pricing & Packages</h2>
+    <p style="text-align:center;color:var(--text-dim);max-width:700px;margin:1rem auto 2rem;">
+      Transparent pricing based on project scope and requirements.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Starter Portfolio</h3>
+        <p style="color:#fff;font-weight:600;">₹5,000 – ₹8,000</p>
+        <p>Single-page website, responsive design, hosting setup.</p>
+      </div>
+      <div class="service-card">
+        <h3>Professional Website</h3>
+        <p style="color:#fff;font-weight:600;">₹15,000 – ₹25,000</p>
+        <p>Multi-section site, branding, WhatsApp CTA, SEO basics.</p>
+      </div>
+      <div class="service-card">
+        <h3>Automation & Tools</h3>
+        <p style="color:#fff;font-weight:600;">₹35,000+</p>
+        <p>Custom automation, dashboards, calculators, integrations.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 Dream Ladders</p>
-      <p>Built with logic. Designed for scale.</p>
-    </footer>
-  </div>
+  <!-- CONTACT -->
+  <section id="contact" style="text-align:center;">
+    <h2 style="font-size:1.8rem;font-weight:800;">Let’s Talk</h2>
+    <p style="color:var(--text-dim);max-width:700px;margin:1rem auto 1.5rem;">
+      Get clarity on cost, scope, and timeline in one quick conversation.
+    </p>
+    <a href="https://wa.me/917093218658" class="btn-main">Chat on WhatsApp</a>
+  </section>
 
+  <!-- LOCAL SEO SIGNAL -->
+  <p style="display:none;">
+    Dream Ladders is a website development and automation services provider
+    serving clients across India, including consultants, engineers,
+    startups, and small businesses.
+  </p>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Dream Ladders</p>
+    <p>Built with logic. Designed for scale.</p>
+  </footer>
+
+</div>
 </body>
 </html>
