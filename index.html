@@ -32,6 +32,18 @@
       overflow-x: hidden;
     }
 
+    /* Particles Container */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .content-wrapper { position: relative; z-index: 10; }
+
     .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
 
     /* --- NAVIGATION --- */
@@ -47,52 +59,60 @@
       background: rgba(3, 7, 18, 0.8);
       border-bottom: 1px solid var(--border);
     }
-    .logo { font-weight: 800; font-size: 1.2rem; color: #fff; display: flex; align-items: center; text-decoration: none; }
+    .logo { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        font-weight: 800; 
+        font-size: 1.2rem; 
+        color: #fff; 
+        text-decoration: none; 
+    }
+    .logo img {
+        height: 40px;
+        width: auto;
+        border-radius: 8px;
+        animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+    }
+
     .nav-links a { color: var(--text-dim); margin-left: 1.5rem; font-size: 0.85rem; transition: 0.3s; text-decoration: none; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* --- HERO SECTION --- */
+    /* --- HERO --- */
     header {
       padding: 160px 0 100px;
       text-align: center;
-      background: radial-gradient(circle at center, rgba(56,189,248,0.05) 0%, transparent 70%);
     }
 
     h1 {
       font-size: clamp(2.5rem, 8vw, 4rem);
       font-weight: 800;
-      line-height: 1.1;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #fff 0%, #38bdf8 100%);
+      background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero-tagline {
-      font-size: 1.2rem;
-      color: var(--text-dim);
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-    }
-
-    /* --- BUTTON ANIMATION --- */
     .btn-main {
       background: var(--accent);
       color: #000;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       border-radius: 50px;
       font-weight: 700;
       display: inline-block;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       text-decoration: none;
-      box-shadow: 0 0 0 rgba(56, 189, 248, 0);
     }
     .btn-main:hover {
       transform: scale(1.05);
       box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
     }
 
-    /* --- CARD ANIMATIONS --- */
+    /* --- CARDS --- */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,133 +126,132 @@
       padding: 2.5rem;
       border-radius: 24px;
       transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
     .service-card:hover {
       transform: translateY(-10px);
       border-color: var(--accent);
-      background: rgba(17, 24, 39, 0.9);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 20px var(--accent-glow);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 15px var(--accent-glow);
     }
 
-    .service-card h3 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-    }
+    .price-tag { font-size: 1.5rem; font-weight: 800; margin: 1rem 0; color: #fff; }
 
-    .price-tag {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin: 1rem 0;
-      color: #fff;
-    }
+    section { padding: 100px 0; }
+    h2 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
 
-    section { padding: 80px 0; }
-    h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
-
-    footer {
-      padding: 4rem 0;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      color: var(--text-dim);
-    }
+    footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); color: var(--text-dim); }
 
     @media(max-width:768px){ .nav-links{display:none;} }
   </style>
 </head>
 
 <body>
-<div class="container">
 
-  <nav data-aos="fade-down">
-    <a href="#" class="logo">Dream Ladders</a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
+<div id="particles-js"></div>
+
+<div class="content-wrapper">
+    <div class="container">
+      <nav data-aos="fade-down">
+        <a href="#" class="logo">
+          <img src="android-chrome-512x512.png" alt="Dream Ladders Logo">
+          Dream Ladders
+        </a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <header>
+        <div data-aos="fade-up" style="border:1px solid var(--accent); padding:5px 15px; border-radius:20px; color:var(--accent); display:inline-block; margin-bottom:20px; font-size:0.8rem; font-weight:600;">
+            ESTABLISHED 2026
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="100">
+          Scalable Websites & <br>Custom Automation
+        </h1>
+        <p style="font-size:1.2rem; color:var(--text-dim); max-width:700px; margin:0 auto 2.5rem;" data-aos="fade-up" data-aos-delay="200">
+          Professional engineering tools and high-performance websites for consultants and small businesses across India.
+        </p>
+        <div data-aos="zoom-in" data-aos-delay="300">
+            <a href="https://wa.me/917093218658" class="btn-main">Get a Free Consultation</a>
+        </div>
+      </header>
+
+      <section id="services">
+        <h2 data-aos="fade-up">Our Solutions</h2>
+        <div class="services-grid">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:1px; margin-bottom:1rem;">01. WEB APPS</h3>
+            <p>Modern, SEO-optimized sites that turn visitors into clients.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:1px; margin-bottom:1rem;">02. ENGINEERING</h3>
+            <p>Custom dashboards and calculators for technical workflows.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <h3 style="color:var(--accent); font-size:0.9rem; letter-spacing:1px; margin-bottom:1rem;">03. DEVOPS</h3>
+            <p>Fast hosting, SSL security, and CI/CD for zero-downtime.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <h2 data-aos="fade-up">Simple Pricing</h2>
+        <div class="services-grid">
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Starter Portfolio</h3>
+            <div class="price-tag">₹8,000</div>
+            <p>Ideal for solo experts looking for a clean professional presence.</p>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200" style="border-color: #c084fc;">
+            <h3>Professional</h3>
+            <div class="price-tag">₹25,000</div>
+            <p>Multi-page, full branding, SEO, and WhatsApp API integration.</p>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+            <h3>Custom Tools</h3>
+            <div class="price-tag">₹35,000+</div>
+            <p>Custom software and automation tailored to your unique business.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="text-align:center;">
+        <div class="service-card" data-aos="flip-up" style="max-width: 800px; margin: 0 auto;">
+            <h2 style="margin-bottom:15px;">Ready to build something?</h2>
+            <p style="margin-bottom:30px; color:var(--text-dim);">Get a clear scope and price in one 15-minute call.</p>
+            <a href="https://wa.me/917093218658" class="btn-main">Chat on WhatsApp</a>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2026 Dream Ladders • Built for Scale</p>
+      </footer>
     </div>
-  </nav>
-
-  <header>
-    <div data-aos="fade-up" class="badge" style="border:1px solid var(--accent); padding:5px 15px; border-radius:20px; color:var(--accent); display:inline-block; margin-bottom:20px; font-size:0.8rem;">
-        READY TO SCALE?
-    </div>
-    <h1 data-aos="fade-up" data-aos-delay="100">
-      Website Development <br>& Automation
-    </h1>
-    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
-      We build high-performance digital tools for consultants and engineers. 
-      Automate your workflow and professionalize your online presence.
-    </p>
-    <div data-aos="zoom-in" data-aos-delay="300">
-        <a href="https://wa.me/917093218658" class="btn-main">Start Your Project</a>
-    </div>
-  </header>
-
-  <section id="services">
-    <h2 data-aos="fade-up">Our Expertise</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>WEB DESIGN</h3>
-        <p>Premium portfolio sites that establish instant authority for consultants.</p>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>ENGINEERING TOOLS</h3>
-        <p>Custom calculators and dashboards built for technical accuracy.</p>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <h3>AUTOMATION</h3>
-        <p>Connect your tools and save 10+ hours a week on repetitive tasks.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <h2 data-aos="fade-up">Transparent Pricing</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="flip-left" data-aos-delay="100">
-        <h3>STARTER</h3>
-        <div class="price-tag">₹8,000</div>
-        <p>Perfect for solo-consultants. Single page, high speed, mobile ready.</p>
-      </div>
-      <div class="service-card" data-aos="flip-left" data-aos-delay="200" style="border-color: var(--accent-2);">
-        <h3>BUSINESS</h3>
-        <div class="price-tag">₹25,000</div>
-        <p>Full multi-page site with SEO, Branding, and WhatsApp integration.</p>
-      </div>
-      <div class="service-card" data-aos="flip-left" data-aos-delay="300">
-        <h3>CUSTOM</h3>
-        <div class="price-tag">₹35,000+</div>
-        <p>Complex automation, custom portals, and dedicated engineering tools.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" style="text-align:center;">
-    <div class="service-card" data-aos="zoom-out" style="max-width: 800px; margin: 0 auto; background: linear-gradient(rgba(17,24,39,0.8), rgba(56,189,248,0.05));">
-        <h2 style="margin-bottom:20px;">Transform Your Business</h2>
-        <p style="margin-bottom:30px; color:var(--text-dim);">Skip the long emails. Let's discuss your project over a 15-minute WhatsApp chat.</p>
-        <a href="https://wa.me/917093218658" class="btn-main">Chat Now</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Dream Ladders • Built with Logic</p>
-  </footer>
-
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-  // Initialize Animations
-  AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
+  AOS.init({ duration: 1000, once: true });
+
+  /* Particle Config */
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": "#38bdf8" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.2 },
+      "size": { "value": 3 },
+      "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.1, "width": 1 },
+      "move": { "enable": true, "speed": 1.5 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "grab" } },
+      "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 0.4 } } }
+    }
   });
 </script>
 
