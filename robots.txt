@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rajeshshambudu.github.io/sitemap.xml
+
